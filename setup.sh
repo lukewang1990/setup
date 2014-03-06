@@ -40,10 +40,9 @@ if [ -d .emacs.d/ ]; then
     mv .emacs.d .emacs.d~
 fi
 git clone https://github.com/lukewang1990/dotfiles.git
-ln -sb dotfiles/.screenrc .
-ln -sb dotfiles/.bash_profile .
-ln -sb dotfiles/.bashrc .
-ln -sb dotfiles/.bashrc_custom .
-ln -sf dotfiles/.emacs.d .
-ln -sb dotfiles/.vimrc .
+if [ -f init_linux ]; then
+	mv init_linux init_linux~
+fi
+cp dotfiles/init_linux .
+./init_linux
 
